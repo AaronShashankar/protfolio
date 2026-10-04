@@ -1,0 +1,11 @@
+/* marquee */
+.marquee{margin:clamp(3rem,8vh,6rem) -4vw;padding:clamp(1.2rem,3vh,2rem) 0;border-block:1px solid var(--line);background:color-mix(in srgb,var(--bg) 55%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:skewY(-2deg);overflow:hidden;will-change:transform}
+.mrow{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mrow.rev{animation-direction:reverse;animation-duration:46s;margin-top:.4rem}
+.mrow span{display:flex;align-items:center;gap:clamp(1.2rem,3vw,2.6rem);padding-right:clamp(1.2rem,3vw,2.6rem);font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(2.2rem,6.5vw,5.6rem);letter-spacing:-.03em;white-space:nowrap}
+.mrow b{font-weight:800}
+.mrow b:nth-of-type(even){color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.mrow em{display:block;width:.34em;height:.34em;background:var(--pink);transform:rotate(45deg);flex:none;font-size:clamp(2.2rem,6.5vw,5.6rem)}
+.mrow.rev em{background:var(--cyan)}
+@keyframes mq{to{transform:translateX(-50%)}}
+

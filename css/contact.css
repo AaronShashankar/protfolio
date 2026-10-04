@@ -1,0 +1,12 @@
+/* contact */
+.contact{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:3rem;padding-top:clamp(6rem,16vh,10rem);padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px))}
+.big{font-weight:800;font-size:clamp(2.6rem,10vw,9.5rem);line-height:.96;letter-spacing:-.045em;max-width:9em}
+.mail{display:inline-flex;flex-wrap:wrap;margin-top:2rem;font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(1.1rem,3.2vw,2.4rem);letter-spacing:-.03em;border-bottom:2px solid var(--pink);padding-bottom:.2rem;overflow-wrap:anywhere}
+.mail .l{display:inline-block;transition:transform .5s cubic-bezier(.3,1.6,.5,1) calc(var(--i)*22ms)}
+.mail:hover .l{transform:translateY(-.22em)}
+.foot{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-end;color:var(--muted);font-size:.95rem}
+.socials{display:flex;gap:1.6rem;color:var(--ink);font-weight:500}
+.socials a{position:relative;padding:.2rem 0}
+.socials a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.9,.1,1)}
+.socials a:hover::after{transform:scaleX(1);transform-origin:left}
+

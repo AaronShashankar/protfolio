@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #100E2E;
+  --bg2: #1C1850;
+  --ink: #EEEAFF;
+  --muted: #A8A4D4;
+  --pink: #FF5C8A;
+  --cyan: #5CE1E6;
+  --violet: #7B61FF;
+  --yellow: #FFC857;
+  --line: rgba(238, 234, 255, 0.16);
+  --card: rgba(255, 255, 255, 0.055);
+}
+
+html.light {
+  --bg: #F4F1FD;
+  --bg2: #E5DEF8;
+  --ink: #17133F;
+  --muted: #5B578E;
+  --pink: #E8326A;
+  --cyan: #0E9AA8;
+  --violet: #5B3FE0;
+  --yellow: #D98E00;
+  --line: rgba(23, 19, 63, 0.14);
+  --card: rgba(255, 255, 255, 0.7);
+}
+
+html.dark {
+  --bg: #100E2E;
+  --bg2: #1C1850;
+  --ink: #EEEAFF;
+  --muted: #A8A4D4;
+  --pink: #FF5C8A;
+  --cyan: #5CE1E6;
+  --violet: #7B61FF;
+  --yellow: #FFC857;
+  --line: rgba(238, 234, 255, 0.16);
+  --card: rgba(255, 255, 255, 0.055);
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom button swipe hover animation */
+.btn-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 9999px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s, background-color 0.3s;
+  font-family: inherit;
+}
+
+.btn-magnetic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateY(101%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.1, 1), border-radius 0.5s;
+  z-index: -1;
+}
+
+.btn-magnetic:hover {
+  color: var(--bg);
+}
+
+.btn-magnetic:hover::before {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.btn-magnetic.solid {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #ffffff;
+}
+
+.btn-magnetic.solid::before {
+  background: var(--ink);
+}
+
+.btn-magnetic.solid:hover {
+  color: var(--bg);
+}
+
+/* Character 3D reveal animation */
+.ch-anim {
+  display: inline-block;
+  transform: translateY(112%) rotateX(-85deg);
+  transform-origin: 50% 100%;
+  transition: transform 1.2s cubic-bezier(0.16, 0.9, 0.1, 1) calc(var(--i) * 60ms + 250ms);
+}
+
+.loaded .ch-anim {
+  transform: none;
+}
+
+/* 3D card tilt & glare */
+.portfolio-card {
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.3s ease-out, border-color 0.3s, background-color 0.3s;
+  will-change: transform;
+}
+
+.portfolio-card:hover {
+  border-color: rgba(238, 234, 255, 0.4);
+}
+
+.card-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.18), transparent 60%);
+  transition: opacity 0.3s;
+}
+
+.portfolio-card:hover .card-glare {
+  opacity: 1;
+}
+
+/* Generative CSS Art styles */
+.rings-art i {
+  position: absolute;
+  aspect-ratio: 1;
+  width: calc(var(--k) * 22%);
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  animation: ring 4.4s ease-in-out infinite;
+  animation-delay: calc(var(--k) * -0.7s);
+}
+
+@keyframes ring {
+  0%, 100% { transform: scale(0.78); opacity: 0.95; }
+  50% { transform: scale(1.18); opacity: 0.2; }
+}
+
+.bars-art i {
+  flex: 1;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(var(--pink), var(--violet));
+  transform-origin: bottom;
+  animation: bar var(--d, 1.6s) ease-in-out infinite;
+  animation-delay: calc(var(--k) * -0.16s);
+}
+
+@keyframes bar {
+  0%, 100% { transform: scaleY(0.12); }
+  50% { transform: scaleY(var(--m, 1)); }
+}
+
+.sys-3d {
+  position: relative;
+  width: 62%;
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  transform: rotateX(64deg) rotateY(-12deg);
+}
+
+.sys-3d i {
+  position: absolute;
+  inset: calc((1 - var(--s)) * 50%);
+  border-radius: 50%;
+  border: 1px solid rgba(238, 234, 255, 0.45);
+  animation: spinz calc(var(--d) * 1s) linear infinite;
+}
+
+.sys-3d i::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 14px var(--yellow);
+}
+
+.sys-3d .core {
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--cyan), var(--violet));
+  animation: none;
+  border: 0;
+  box-shadow: 0 0 40px rgba(92, 225, 230, 0.6);
+}
+
+.sys-3d .core::after {
+  display: none;
+}
+
+@keyframes spinz {
+  to { transform: rotate(360deg); }
+}
+
+.sheets-3d {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.sheets-3d i {
+  position: absolute;
+  width: 48%;
+  aspect-ratio: 3/4;
+  border-radius: 14px;
+  border: 1px solid rgba(238, 234, 255, 0.4);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+  transform: rotateX(58deg) rotateZ(-32deg) translateZ(calc(var(--k) * 30px));
+  animation: sheet 5s ease-in-out infinite;
+  animation-delay: calc(var(--k) * -0.55s);
+}
+
+@keyframes sheet {
+  0%, 100% { transform: rotateX(58deg) rotateZ(-32deg) translateZ(calc(var(--k) * 26px)); }
+  50% { transform: rotateX(58deg) rotateZ(-32deg) translateZ(calc(var(--k) * 62px)); }
+}
+
+/* Skills 3D ring */
+.skills-stage {
+  position: relative;
+  width: 100%;
+  height: min(58vh, 26rem);
+  perspective: 1300px;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+.skills-ring {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-12deg);
+}
+
+.skill-pill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.6vw, 1.8rem);
+  letter-spacing: -0.02em;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Email letter hover bounce */
+.mail-letter {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) calc(var(--i) * 22ms);
+}
+
+.mail-hover:hover .mail-letter {
+  transform: translateY(-0.22em);
+}

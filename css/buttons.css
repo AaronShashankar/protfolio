@@ -1,0 +1,7 @@
+.btn{position:relative;display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;padding:.95rem 1.6rem;border-radius:999px;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .4s;font-family:inherit}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);border-radius:50% 50% 0 0/100% 100% 0 0;transition:transform .5s cubic-bezier(.2,.9,.1,1),border-radius .5s;z-index:-1}
+.btn:hover{color:var(--bg)}
+.btn:hover::before{transform:translateY(0);border-radius:0}
+.btn.solid{background:var(--pink);border-color:var(--pink);color:#fff}
+.btn.solid::before{background:var(--ink)}
+.btn.solid:hover{color:var(--bg)}

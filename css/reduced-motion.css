@@ -1,0 +1,6 @@
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .ch{transform:none}
+  .nav,.hero-row{opacity:1;transform:none}
+}

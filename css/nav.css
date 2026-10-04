@@ -1,0 +1,13 @@
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:calc(1.1rem + env(safe-area-inset-top,0px));padding-bottom:1rem;opacity:0;transform:translateY(-1rem);transition:opacity .9s 1.3s,transform .9s 1.3s}
+.loaded .nav{opacity:1;transform:none}
+.brand{font-family:'Unbounded',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:-.01em}
+.nav ul{display:flex;gap:clamp(1rem,3vw,2.2rem);font-weight:500;font-size:.95rem}
+.nav li a{position:relative;padding:.3rem 0}
+.nav li a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.9,.1,1)}
+.nav li a:hover::after{transform:scaleX(1);transform-origin:left}
+.avail{display:inline-flex;align-items:center;gap:.55rem;font-size:.85rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem;background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--cyan) 70%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+@media (max-width:760px){.avail{display:none}}
+

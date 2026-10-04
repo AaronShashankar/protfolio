@@ -1,0 +1,17 @@
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:1.0625rem;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:6px}
+h1,h2,h3{margin:0;font-family:'Unbounded','Hanken Grotesk',system-ui,sans-serif}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+main{position:relative;z-index:1}
+.pad{padding-left:clamp(1.1rem,4vw,3rem);padding-right:clamp(1.1rem,4vw,3rem)}
+

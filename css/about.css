@@ -1,0 +1,11 @@
+/* about */
+.about{padding-top:clamp(7rem,20vh,14rem);padding-bottom:clamp(5rem,14vh,10rem)}
+.statement{font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(1.45rem,3.5vw,3.1rem);line-height:1.22;letter-spacing:-.025em;max-width:24em}
+.statement .w{opacity:.14;display:inline-block;margin-right:.26em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);margin-top:clamp(4rem,10vh,7rem);max-width:60rem}
+.stat{border-top:1px solid var(--line);padding-top:1.2rem}
+.stat strong{display:block;font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.05em;line-height:1}
+.stat strong sup{font-size:.4em;vertical-align:top;margin-left:.1em;color:var(--pink)}
+.stat span{display:block;margin-top:.7rem;color:var(--muted);font-size:.98rem;max-width:20ch}
+@media (max-width:640px){.stats{grid-template-columns:1fr}}
+
