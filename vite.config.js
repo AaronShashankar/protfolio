@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio-react-vite-tailwind/',
+  // GitHub Pages serves this project under the repository name.
+  base: '/protfolio/',
   server: {
     host: true,
     port: 3000,
